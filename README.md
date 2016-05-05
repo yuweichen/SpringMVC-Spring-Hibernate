@@ -24,5 +24,4 @@ System Features
 
 About
 -----------------------------------
-* [Github link](https://github.com/ZhibingXie)
-* [Linkedin link](http://www.linkedin.com/in/zhibingxie)
+* [Github link](https://github.com/yuweichen)
