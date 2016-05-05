@@ -1,0 +1,354 @@
+package org.apache.jsp.admin;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+public final class auth_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List _jspx_dependants;
+
+  private javax.el.ExpressionFactory _el_expressionfactory;
+  private org.apache.AnnotationProcessor _jsp_annotationprocessor;
+
+  public Object getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
+    _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
+  }
+
+  public void _jspDestroy() {
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+
+    try {
+      response.setContentType("text/html;charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("<head>\n");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../include.jsp", out, false);
+      out.write("\n");
+      out.write("<script type=\"text/javascript\" charset=\"utf-8\">\n");
+      out.write("\tvar treegrid;\n");
+      out.write("\t$(function() {\n");
+      out.write("\n");
+      out.write("\t\ttreegrid = $('#treegrid').treegrid({\n");
+      out.write("\t\t\turl : '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/authController/treegrid',\n");
+      out.write("\t\t\ttoolbar : [ {\n");
+      out.write("\t\t\t\ttext : 'Expand',\n");
+      out.write("\t\t\t\ticonCls : 'icon-redo',\n");
+      out.write("\t\t\t\thandler : function() {\n");
+      out.write("\t\t\t\t\tvar node = treegrid.treegrid('getSelected');\n");
+      out.write("\t\t\t\t\tif (node) {\n");
+      out.write("\t\t\t\t\t\ttreegrid.treegrid('expandAll', node.cid);\n");
+      out.write("\t\t\t\t\t} else {\n");
+      out.write("\t\t\t\t\t\ttreegrid.treegrid('expandAll');\n");
+      out.write("\t\t\t\t\t}\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t}, '-', {\n");
+      out.write("\t\t\t\ttext : 'Collapse',\n");
+      out.write("\t\t\t\ticonCls : 'icon-undo',\n");
+      out.write("\t\t\t\thandler : function() {\n");
+      out.write("\t\t\t\t\tvar node = treegrid.treegrid('getSelected');\n");
+      out.write("\t\t\t\t\tif (node) {\n");
+      out.write("\t\t\t\t\t\ttreegrid.treegrid('collapseAll', node.cid);\n");
+      out.write("\t\t\t\t\t} else {\n");
+      out.write("\t\t\t\t\t\ttreegrid.treegrid('collapseAll');\n");
+      out.write("\t\t\t\t\t}\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t}, '-', {\n");
+      out.write("\t\t\t\ttext : 'Reload',\n");
+      out.write("\t\t\t\ticonCls : 'icon-reload',\n");
+      out.write("\t\t\t\thandler : function() {\n");
+      out.write("\t\t\t\t\ttreegrid.treegrid('reload');\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t}, '-', {\n");
+      out.write("\t\t\t\ttext : 'Add',\n");
+      out.write("\t\t\t\ticonCls : 'icon-add',\n");
+      out.write("\t\t\t\thandler : function() {\n");
+      out.write("\t\t\t\t\tappend();\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t}, '-', {\n");
+      out.write("\t\t\t\ttext : 'Delete',\n");
+      out.write("\t\t\t\ticonCls : 'icon-remove',\n");
+      out.write("\t\t\t\thandler : function() {\n");
+      out.write("\t\t\t\t\tremove();\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t}, '-', {\n");
+      out.write("\t\t\t\ttext : 'Edit',\n");
+      out.write("\t\t\t\ticonCls : 'icon-edit',\n");
+      out.write("\t\t\t\thandler : function() {\n");
+      out.write("\t\t\t\t\tedit();\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t}, '-', {\n");
+      out.write("\t\t\t\ttext : 'Unselect',\n");
+      out.write("\t\t\t\ticonCls : 'icon-back',\n");
+      out.write("\t\t\t\thandler : function() {\n");
+      out.write("\t\t\t\t\ttreegrid.treegrid('unselectAll');\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t}, '-' ],\n");
+      out.write("\t\t\ttitle : '',\n");
+      out.write("\t\t\ticonCls : 'icon-save',\n");
+      out.write("\t\t\tfit : true,\n");
+      out.write("\t\t\tfitColumns : false,\n");
+      out.write("\t\t\tnowrap : false,\n");
+      out.write("\t\t\tanimate : false,\n");
+      out.write("\t\t\tborder : false,\n");
+      out.write("\t\t\tidField : 'cid',\n");
+      out.write("\t\t\ttreeField : 'cname',\n");
+      out.write("\t\t\tfrozenColumns : [ [ {\n");
+      out.write("\t\t\t\ttitle : 'cid',\n");
+      out.write("\t\t\t\tfield : 'cid',\n");
+      out.write("\t\t\t\twidth : 150,\n");
+      out.write("\t\t\t\thidden : true\n");
+      out.write("\t\t\t}, {\n");
+      out.write("\t\t\t\tfield : 'cname',\n");
+      out.write("\t\t\t\ttitle : 'Name',\n");
+      out.write("\t\t\t\twidth : 180,\n");
+      out.write("\t\t\t\tformatter : function(value) {\n");
+      out.write("\t\t\t\t\tif (value) {\n");
+      out.write("\t\t\t\t\t\treturn sy.fs('<span title=\"{0}\">{1}</span>', value, value);\n");
+      out.write("\t\t\t\t\t}\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t} ] ],\n");
+      out.write("\t\t\tcolumns : [ [ {\n");
+      out.write("\t\t\t\tfield : 'curl',\n");
+      out.write("\t\t\t\ttitle : 'Address',\n");
+      out.write("\t\t\t\twidth : 250,\n");
+      out.write("\t\t\t\tformatter : function(value) {\n");
+      out.write("\t\t\t\t\tif (value) {\n");
+      out.write("\t\t\t\t\t\treturn sy.fs('<span title=\"{0}\">{1}</span>', value, value);\n");
+      out.write("\t\t\t\t\t}\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t}, {\n");
+      out.write("\t\t\t\tfield : 'cdesc',\n");
+      out.write("\t\t\t\ttitle : 'Description',\n");
+      out.write("\t\t\t\twidth : 250,\n");
+      out.write("\t\t\t\tformatter : function(value) {\n");
+      out.write("\t\t\t\t\tif (value) {\n");
+      out.write("\t\t\t\t\t\treturn sy.fs('<span title=\"{0}\">{1}</span>', value, value);\n");
+      out.write("\t\t\t\t\t}\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t}, {\n");
+      out.write("\t\t\t\tfield : 'cseq',\n");
+      out.write("\t\t\t\ttitle : 'Sequence',\n");
+      out.write("\t\t\t\twidth : 150\n");
+      out.write("\t\t\t}, {\n");
+      out.write("\t\t\t\tfield : 'pid',\n");
+      out.write("\t\t\t\ttitle : 'Parent ID',\n");
+      out.write("\t\t\t\twidth : 150,\n");
+      out.write("\t\t\t\thidden : true\n");
+      out.write("\t\t\t}, {\n");
+      out.write("\t\t\t\tfield : 'pname',\n");
+      out.write("\t\t\t\ttitle : 'Parent Name',\n");
+      out.write("\t\t\t\twidth : 150\n");
+      out.write("\t\t\t} ] ],\n");
+      out.write("\t\t\tonContextMenu : function(e, row) {\n");
+      out.write("\t\t\t\te.preventDefault();\n");
+      out.write("\t\t\t\t$(this).treegrid('unselectAll');\n");
+      out.write("\t\t\t\t$(this).treegrid('select', row.cid);\n");
+      out.write("\t\t\t\t$('#menu').menu('show', {\n");
+      out.write("\t\t\t\t\tleft : e.pageX,\n");
+      out.write("\t\t\t\t\ttop : e.pageY\n");
+      out.write("\t\t\t\t});\n");
+      out.write("\t\t\t},\n");
+      out.write("\t\t\tonLoadSuccess : function(row, data) {\n");
+      out.write("\t\t\t\t/*var t = $(this);\n");
+      out.write("\t\t\t\tif (data) {\n");
+      out.write("\t\t\t\t\t$(data).each(function(index, d) {\n");
+      out.write("\t\t\t\t\t\tif (this.state == 'closed') {\n");
+      out.write("\t\t\t\t\t\t\tt.treegrid('expandAll');\n");
+      out.write("\t\t\t\t\t\t}\n");
+      out.write("\t\t\t\t\t});\n");
+      out.write("\t\t\t\t}*/\n");
+      out.write("\t\t\t},\n");
+      out.write("\t\t\tonExpand : function(row) {\n");
+      out.write("\t\t\t\ttreegrid.treegrid('unselectAll');\n");
+      out.write("\t\t\t},\n");
+      out.write("\t\t\tonCollapse : function(row) {\n");
+      out.write("\t\t\t\ttreegrid.treegrid('unselectAll');\n");
+      out.write("\t\t\t}\n");
+      out.write("\t\t});\n");
+      out.write("\n");
+      out.write("\t});\n");
+      out.write("\n");
+      out.write("\tfunction append() {\n");
+      out.write("\t\tvar p = parent.sy.dialog({\n");
+      out.write("\t\t\ttitle : 'Add authority',\n");
+      out.write("\t\t\thref : '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/authController/authAdd',\n");
+      out.write("\t\t\twidth : 500,\n");
+      out.write("\t\t\theight : 200,\n");
+      out.write("\t\t\tbuttons : [ {\n");
+      out.write("\t\t\t\ttext : 'Add',\n");
+      out.write("\t\t\t\thandler : function() {\n");
+      out.write("\t\t\t\t\tvar f = p.find('form');\n");
+      out.write("\t\t\t\t\tf.form('submit', {\n");
+      out.write("\t\t\t\t\t\turl : '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/authController/add',\n");
+      out.write("\t\t\t\t\t\tsuccess : function(d) {\n");
+      out.write("\t\t\t\t\t\t\tvar json = $.parseJSON(d);\n");
+      out.write("\t\t\t\t\t\t\tif (json.success) {\n");
+      out.write("\t\t\t\t\t\t\t\ttreegrid.treegrid('reload');\n");
+      out.write("\t\t\t\t\t\t\t\tp.dialog('close');\n");
+      out.write("\t\t\t\t\t\t\t}\n");
+      out.write("\t\t\t\t\t\t\tparent.sy.messagerShow({\n");
+      out.write("\t\t\t\t\t\t\t\tmsg : json.msg,\n");
+      out.write("\t\t\t\t\t\t\t\ttitle : 'Message'\n");
+      out.write("\t\t\t\t\t\t\t});\n");
+      out.write("\t\t\t\t\t\t}\n");
+      out.write("\t\t\t\t\t});\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t} ],\n");
+      out.write("\t\t\tonLoad : function() {\n");
+      out.write("\t\t\t\tvar f = p.find('form');\n");
+      out.write("\t\t\t\tvar pid = f.find('input[name=pid]');\n");
+      out.write("\t\t\t\tvar ptree = pid.combotree({\n");
+      out.write("\t\t\t\t\tlines : true,\n");
+      out.write("\t\t\t\t\turl : '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/authController/doNotNeedSession_tree'\n");
+      out.write("\t\t\t\t});\n");
+      out.write("\t\t\t}\n");
+      out.write("\t\t});\n");
+      out.write("\t}\n");
+      out.write("\t\n");
+      out.write("\tfunction edit() {\n");
+      out.write("\t\tvar node = treegrid.treegrid('getSelected');\n");
+      out.write("\t\tif (node) {\n");
+      out.write("\t\t\tvar p = parent.sy.dialog({\n");
+      out.write("\t\t\t\ttitle : 'Edit authority',\n");
+      out.write("\t\t\t\thref : '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/authController/authEdit',\n");
+      out.write("\t\t\t\twidth : 500,\n");
+      out.write("\t\t\t\theight : 200,\n");
+      out.write("\t\t\t\tbuttons : [ {\n");
+      out.write("\t\t\t\t\ttext : 'Edit',\n");
+      out.write("\t\t\t\t\thandler : function() {\n");
+      out.write("\t\t\t\t\t\tvar f = p.find('form');\n");
+      out.write("\t\t\t\t\t\tf.form('submit', {\n");
+      out.write("\t\t\t\t\t\t\turl : '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/authController/edit',\n");
+      out.write("\t\t\t\t\t\t\tsuccess : function(d) {\n");
+      out.write("\t\t\t\t\t\t\t\tvar json = $.parseJSON(d);\n");
+      out.write("\t\t\t\t\t\t\t\tif (json.success) {\n");
+      out.write("\t\t\t\t\t\t\t\t\ttreegrid.treegrid('reload');\n");
+      out.write("\t\t\t\t\t\t\t\t\tp.dialog('close');\n");
+      out.write("\t\t\t\t\t\t\t\t}\n");
+      out.write("\t\t\t\t\t\t\t\tparent.sy.messagerShow({\n");
+      out.write("\t\t\t\t\t\t\t\t\tmsg : json.msg,\n");
+      out.write("\t\t\t\t\t\t\t\t\ttitle : 'Message'\n");
+      out.write("\t\t\t\t\t\t\t\t});\n");
+      out.write("\t\t\t\t\t\t\t}\n");
+      out.write("\t\t\t\t\t\t});\n");
+      out.write("\t\t\t\t\t}\n");
+      out.write("\t\t\t\t} ],\n");
+      out.write("\t\t\t\tonLoad : function() {\n");
+      out.write("\t\t\t\t\tvar f = p.find('form');\n");
+      out.write("\t\t\t\t\tvar pid = f.find('input[name=pid]');\n");
+      out.write("\t\t\t\t\tvar ptree = pid.combotree({\n");
+      out.write("\t\t\t\t\t\tlines : true,\n");
+      out.write("\t\t\t\t\t\turl : '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/authController/doNotNeedSession_treeRecursive',\n");
+      out.write("\t\t\t\t\t\tonLoadSuccess : function() {\n");
+      out.write("\t\t\t\t\t\t\tparent.$.messager.progress('close');\n");
+      out.write("\t\t\t\t\t\t}\n");
+      out.write("\t\t\t\t\t});\n");
+      out.write("\t\t\t\t\tf.form('load', node);\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t});\n");
+      out.write("\t\t} else {\n");
+      out.write("\t\t\tparent.sy.messagerAlert('Message', 'Please select one to edit', 'error');\n");
+      out.write("\t\t}\n");
+      out.write("\t}\n");
+      out.write("\t\n");
+      out.write("\tfunction remove() {\n");
+      out.write("\t\tvar node = treegrid.treegrid('getSelected');\n");
+      out.write("\t\tif (node) {\n");
+      out.write("\t\t\tparent.sy.messagerConfirm('Confirm', 'Are you sure to delete [' + node.cname + ']?', function(b) {\n");
+      out.write("\t\t\t\tif (b) {\n");
+      out.write("\t\t\t\t\t$.ajax({\n");
+      out.write("\t\t\t\t\t\turl : '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/authController/delete',\n");
+      out.write("\t\t\t\t\t\tdata : {\n");
+      out.write("\t\t\t\t\t\t\tcid : node.cid\n");
+      out.write("\t\t\t\t\t\t},\n");
+      out.write("\t\t\t\t\t\tcache : false,\n");
+      out.write("\t\t\t\t\t\tdataType : 'JSON',\n");
+      out.write("\t\t\t\t\t\tsuccess : function(r) {\n");
+      out.write("\t\t\t\t\t\t\tif (r.success) {\n");
+      out.write("\t\t\t\t\t\t\t\ttreegrid.treegrid('remove', r.obj);\n");
+      out.write("\t\t\t\t\t\t\t}\n");
+      out.write("\t\t\t\t\t\t\tparent.sy.messagerShow({\n");
+      out.write("\t\t\t\t\t\t\t\tmsg : r.msg,\n");
+      out.write("\t\t\t\t\t\t\t\ttitle : 'Message'\n");
+      out.write("\t\t\t\t\t\t\t});\n");
+      out.write("\t\t\t\t\t\t}\n");
+      out.write("\t\t\t\t\t});\n");
+      out.write("\t\t\t\t}\n");
+      out.write("\t\t\t});\n");
+      out.write("\t\t}\n");
+      out.write("\t}\n");
+      out.write("</script>\n");
+      out.write("</head>\n");
+      out.write("<body class=\"easyui-layout\" data-options=\"fit:true\">\n");
+      out.write("\t<div data-options=\"region:'center',border:false\" style=\"overflow:hidden;\">\n");
+      out.write("\t\t<table id=\"treegrid\"></table>\n");
+      out.write("\t</div>\n");
+      out.write("\n");
+      out.write("\t<div id=\"menu\" class=\"easyui-menu\" style=\"width:120px;display:none;\">\n");
+      out.write("\t\t<div onclick=\"append();\" data-options=\"iconCls:'icon-add'\">Add</div>\n");
+      out.write("\t\t<div onclick=\"remove();\" data-options=\"iconCls:'icon-remove'\">Delete</div>\n");
+      out.write("\t\t<div onclick=\"edit();\" data-options=\"iconCls:'icon-edit'\">Edit</div>\n");
+      out.write("\t</div>\n");
+      out.write("</body>\n");
+      out.write("</html>");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          try { out.clearBuffer(); } catch (java.io.IOException e) {}
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}
