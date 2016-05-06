@@ -13,14 +13,14 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- spring mvc controller -->
-	<context:component-scan base-package="rml.controller" />
+	<context:component-scan base-package="ssm.controller" />
 
 	<!-- Spring MVC JSON -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
 				<!-- <bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter"> -->
-				<bean id="fastJsonHttpMessageConverter" class="rml.util.FastJsonHttpMessageConverter">
+				<bean id="fastJsonHttpMessageConverter" class="ssm.util.FastJsonHttpMessageConverter">
 					<property name="supportedMediaTypes">
 						<list>
 							<value>text/html;charset=UTF-8</value>
@@ -51,7 +51,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="rml.interceptors.SecurityInterceptor">
+			<bean class="ssm.interceptors.SecurityInterceptor">
 				<!-- exclude urls -->
 				<property name="excludeUrls">
 					<list>
@@ -69,6 +69,7 @@
 						<value>/userController/doNotNeedSession_logout</value>
 						<value>/userController/doNotNeedSession_combobox</value>
 						<value>/userController/doNotNeedSession_datagrid</value>
+						<value>/WXApi/api/valid</value>
 					</list>
 				</property>
 			</bean>

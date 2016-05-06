@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>zhibing_springmvc</groupId>
-	<artifactId>zhibing_springmvc</artifactId>
+	<groupId>cyw_springmvc</groupId>
+	<artifactId>cyw_springmvc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>zhibing_springmvc</name>
+	<name>cyw_springmvc</name>
 
 	<!-- Maven official repository -->
 	<repositories>
@@ -35,7 +35,7 @@
 	<properties>
 		<!-- Encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jdk.version>1.6</jdk.version>
+		<jdk.version>1.7</jdk.version>
 
 		<spring.version>3.2.8.RELEASE</spring.version>
 		<hibernate.version>4.2.11.Final</hibernate.version>
@@ -222,10 +222,11 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+		<!-- weixin api -->
 		<dependency>
-			<groupId>cjc</groupId>
-			<artifactId>cjc-weixinmp</artifactId>
-			<version>1.0</version>
+			<groupId>sword.org</groupId>
+			<artifactId>wechat4j</artifactId>
+			<version>1.2.0</version>
 		</dependency>
 	</dependencies>
 
@@ -247,7 +248,7 @@
 			</plugin>
 		</plugins>
 
-		<finalName>zhibing_springmvc</finalName>
+		<finalName>cyw_springmvc</finalName>
 	</build>
 
 </project>

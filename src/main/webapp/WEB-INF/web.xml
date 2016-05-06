@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
 
-	<display-name>zhibing_springmvc</display-name>
+	<display-name>cyw_springmvc</display-name>
 
 	<!-- Spring config -->
 	<context-param>
@@ -29,7 +29,7 @@
 	</filter>
 	<filter>
 		<filter-name>errorImgFilter</filter-name>
-		<filter-class>rml.filter.ErrorImgFilter</filter-class>
+		<filter-class>ssm.filter.ErrorImgFilter</filter-class>
 	</filter>
 	
 	<!-- filter mapping -->
@@ -57,10 +57,10 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>    
 	</listener>   
 	<listener>
-		<listener-class>rml.listener.RepairListener</listener-class>
+		<listener-class>ssm.listener.RepairListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>rml.listener.OnlineListener</listener-class>
+		<listener-class>ssm.listener.OnlineListener</listener-class>
 	</listener>
 	
 	<!-- spring mvc config -->

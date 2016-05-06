@@ -3,13 +3,13 @@
 
 Frameworks and Tools
 -----------------------------------
-* Java&IDE: JDK6 MyEclipse2013
+* Java&IDE: JDK7 Eclipse4.5.2
 * Backend:  SpringMVC3.2.8 Spring3.2.8 Hibernate4.2.11 (Configured by annotation)
 * Frontend: JQuery-EasyUI1.3.1 Javascript JQuery Ajax (Client-side and server-side communicated by JSON)
-* Database: Oracle10g
+* Database: MySql5
 * Web Server: Tomcat 7
 * Build Tool: Maven
-* Linux：CentoOS 6.4
+* Windows: win7
 * Other: Druid(database connection pool) JUnit Log4j Jackson FastJson JFreeChart POI
 
 System Features
