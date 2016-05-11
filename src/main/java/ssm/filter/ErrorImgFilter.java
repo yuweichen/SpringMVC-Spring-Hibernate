@@ -21,6 +21,7 @@ import org.apache.log4j.Logger;
  */
 public class ErrorImgFilter extends HttpServlet implements Filter {
 
+	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(ErrorImgFilter.class);
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
