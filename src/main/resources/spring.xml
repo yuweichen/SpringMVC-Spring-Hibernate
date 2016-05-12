@@ -22,7 +22,7 @@
 		</property>
 	</bean>
 
-	<context:component-scan base-package="ssm.dao,ssm.service" />
+	<context:component-scan base-package="org.cyw.ssh.dao,org.cyw.ssh.service" />
 
     <aop:aspectj-autoproxy />
 

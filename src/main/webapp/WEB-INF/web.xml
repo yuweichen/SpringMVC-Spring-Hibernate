@@ -29,7 +29,7 @@
 	</filter>
 	<filter>
 		<filter-name>errorImgFilter</filter-name>
-		<filter-class>ssm.filter.ErrorImgFilter</filter-class>
+		<filter-class>org.cyw.ssh.filter.ErrorImgFilter</filter-class>
 	</filter>
 	
 	<!-- filter mapping -->
@@ -57,10 +57,10 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>    
 	</listener>   
 	<listener>
-		<listener-class>ssm.listener.RepairListener</listener-class>
+		<listener-class>org.cyw.ssh.listener.RepairListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>ssm.listener.OnlineListener</listener-class>
+		<listener-class>org.cyw.ssh.listener.OnlineListener</listener-class>
 	</listener>
 	
 	<!-- spring mvc config -->

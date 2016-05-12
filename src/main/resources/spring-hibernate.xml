@@ -57,7 +57,7 @@
 		<!-- autoscan annotation for hiberante config -->
 		<property name="packagesToScan">
 			<list>
-				<value>ssm.model.po</value>
+				<value>org.cyw.ssh.model.po</value>
 			</list>
 		</property>
 	</bean>
@@ -94,7 +94,7 @@
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>
-		<aop:pointcut id="transactionPointcut" expression="execution(* ssm.service..*Impl.*(..))" />
+		<aop:pointcut id="transactionPointcut" expression="execution(* org.cyw.ssh.service..*Impl.*(..))" />
 		<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />
 	</aop:config>
 

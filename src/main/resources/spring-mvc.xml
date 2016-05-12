@@ -13,14 +13,14 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- spring mvc controller -->
-	<context:component-scan base-package="ssm.controller" />
+	<context:component-scan base-package="org.cyw.ssh.controller" />
 
 	<!-- Spring MVC JSON -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
 				<!-- <bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter"> -->
-				<bean id="fastJsonHttpMessageConverter" class="ssm.util.FastJsonHttpMessageConverter">
+				<bean id="fastJsonHttpMessageConverter" class="org.cyw.ssh.util.FastJsonHttpMessageConverter">
 					<property name="supportedMediaTypes">
 						<list>
 							<value>text/html;charset=UTF-8</value>
@@ -51,7 +51,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="ssm.interceptors.SecurityInterceptor">
+			<bean class="org.cyw.ssh.interceptors.SecurityInterceptor">
 				<!-- exclude urls -->
 				<property name="excludeUrls">
 					<list>
