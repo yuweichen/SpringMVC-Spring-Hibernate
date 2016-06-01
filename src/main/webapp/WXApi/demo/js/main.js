@@ -1,5 +1,5 @@
+var flag = true;
 $(function () {
-
   'use strict';
 
   var console = window.console || { log: function () {} };
@@ -34,24 +34,33 @@ $(function () {
   // Cropper
   $image.on({
     'build.cropper': function (e) {
+    	console.log("a");
       console.log(e.type);
     },
     'built.cropper': function (e) {
+    	console.log("b");
       console.log(e.type);
     },
     'cropstart.cropper': function (e) {
+    	//console.log("c");
       console.log(e.type, e.action);
     },
     'cropmove.cropper': function (e) {
+    	//console.log("d");
+    	if(e.action =='se' || e.action =='e' || e.action =='w' || e.action =='s' || e.action =='n' || e.action =='sw' || e.action =='ne' || e.action =='nw' )
+    		flag = false;
       console.log(e.type, e.action);
     },
     'cropend.cropper': function (e) {
+    	//console.log("e");
+    	flag = true;
       console.log(e.type, e.action);
     },
     'crop.cropper': function (e) {
       console.log(e.type, e.x, e.y, e.width, e.height, e.rotate, e.scaleX, e.scaleY);
     },
     'zoom.cropper': function (e) {
+    	console.log("g");
       console.log(e.type, e.ratio);
     }
   }).cropper(options);

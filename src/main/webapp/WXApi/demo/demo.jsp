@@ -11,11 +11,11 @@
   <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery plugin, image cropping, image crop, image move, image zoom, image rotate, image scale, front-end, frontend, web development">
   <meta name="author" content="Fengyuan Chen">
   <title>Cropper</title>
-  <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../dist/cropper.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/bootstrap-slider.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dist/cropper.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/bootstrap-slider.css">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -59,7 +59,7 @@
     </div>
   </div>
   <div>
-<div id="hammer" style="background-color: blue; width: 300px; height: 300px;margin: 0 auto;"></div>
+<div id="hammer" class="hammer" style="background-color: blue; width: 300px; height: 300px;margin: 0 auto;"></div>
 </div>
   <!-- Content -->
   <div class="container">
@@ -67,7 +67,7 @@
       <div class="col-md-9">
         <!-- <h3 class="page-header">Demo:</h3> -->
         <div class="img-container">
-          <img id="image" src="../assets/img/picture.jpg" alt="Picture">
+          <img id="image" src="assets/img/picture.jpg" alt="Picture">
         </div>
       </div>
       <div class="col-md-3">
@@ -534,15 +534,16 @@
 <!-- <div id="log" style=""></div>
 <div id="hit" style="background-color: red; width: 200px; height: 200px;"></div> -->
   <!-- Scripts -->
-  <script src="../assets/js/jquery.min.js"></script>
-  <script src="../assets/js/bootstrap.min.js"></script>
-  <script src="../dist/cropper.js"></script>
-  <script src="../js/main.js"></script>
-  <script src="../js/bootstrap-slider.js"></script>
-  <script src="../js/hammer.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="dist/cropper.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/bootstrap-slider.js"></script>
+  <script src="js/hammer.js"></script>
   <script src="http://touch.code.baidu.com/touch-0.2.14.min.js"></script>
   <script>
   jQuery(function(){
+	 /*  $('#image').cropper({ resizable: false}) */
 	  var mySlider = new Slider("#slider",{ 
 		 value:0,  
 	      min: -360,  
@@ -572,9 +573,9 @@
 	/* // Without JQuery
 	var slider = new Slider('#ex5'); */
 	
-	 
+/* 	var angle = 0;
 	// get a reference to an element
-/* 	 var stage = document.getElementById('hammer1');
+ var stage = document.getElementById('hammer');
 
 	 // create a manager for that element
 	 var mc = new Hammer.Manager(stage);
@@ -588,26 +589,41 @@
 	 // subscribe to events
 	 mc.on('rotate', function(e) {
 	     // do something cool
-	     var rotation = Math.round(e.rotation);    
-	     // stage.style.transform = 'rotate('+rotation+'deg)';
-	     $('#image').cropper("rotateTo",rotation)
-	 }); */
-	 
-	 var angle = 0;
-	 touch.on('#hammer', 'touchstart', function(ev){
+	     var rotation = Math.round(e.rotation);
+	     var totalAngle = angle + rotation;
+	     if(e.isFinal === 'true'){
+		        angle = angle + rotation;
+		    }
+	   		//$('#hammer').html(writeObj(e))
+	   		$('#hammer').html(e.isFinal)
+	     stage.style.transform = 'rotate('+totalAngle+'deg)';
+	     $('#image').cropper("rotateTo",totalAngle)
+	 });  */
+	var angle = 0;
+	 touch.on('.img-container', 'touchstart', function(ev){
 		    ev.startRotate();
 		    ev.preventDefault();
 		});
 
-		touch.on('#hammer', 'rotate', function(ev){
+		touch.on('.img-container', 'rotate', function(ev){
+			 console.log(flag);
+			if(flag){
 			var totalAngle = angle + ev.rotation;
 		    if(ev.fingerStatus === 'end'){
 		        angle = angle + ev.rotation;
 		    }
-		    this.style.webkitTransform = 'rotate(' + totalAngle  + 'deg)';
-		    $('#image').cropper("rotateTo",totalAngle )
+		   // this.style.webkitTransform = 'rotate(' + totalAngle  + 'deg)';
+		    $('#image').cropper("rotateTo",totalAngle )}
 		});
   });
+  function writeObj(obj){ 
+	    var description = ""; 
+	    for(var i in obj){   
+	        var property=obj[i];   
+	        description+=i+" = "+property+"\n";  
+	    }   
+	    return description; 
+	}  
   </script>
  <!--  <script type="text/javascript">
 

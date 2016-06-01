@@ -32,20 +32,28 @@ public class DemoController extends BaseController {
 		System.err.println(menu);
 		return menu;
 	}
+
 	@ResponseBody
 	@RequestMapping(value = "user")
-	public List<User> user(HttpServletRequest request){
-		UserManager manager=new UserManager();
-		List<String> list=manager.allSubscriber();
-		List<User> users=new ArrayList<User>();
+	public List<User> user(HttpServletRequest request) {
+		UserManager manager = new UserManager();
+		List<String> list = manager.allSubscriber();
+		List<User> users = new ArrayList<User>();
 		for (String str : list) {
 			users.add(manager.getUserInfo(str, LanguageType.zh_CN));
 		}
 		return users;
 	}
+
 	@RequestMapping(value = "demo")
-	public String demo(HttpServletRequest request){
+	public String demo(HttpServletRequest request) {
 		System.err.println(11);
 		return "/WXApi/demo/demo";
+	}
+
+	@RequestMapping(value = "cropper")
+	public String cropper(HttpServletRequest request) {
+		System.err.println(11);
+		return "/WXApi/demo/cropper";
 	}
 }
