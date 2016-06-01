@@ -540,6 +540,7 @@
   <script src="../js/main.js"></script>
   <script src="../js/bootstrap-slider.js"></script>
   <script src="../js/hammer.js"></script>
+  <script src="http://touch.code.baidu.com/touch-0.2.14.min.js"></script>
   <script>
   jQuery(function(){
 	  var mySlider = new Slider("#slider",{ 
@@ -573,7 +574,7 @@
 	
 	 
 	// get a reference to an element
-	 var stage = document.getElementById('hammer');
+/* 	 var stage = document.getElementById('hammer1');
 
 	 // create a manager for that element
 	 var mc = new Hammer.Manager(stage);
@@ -588,19 +589,27 @@
 	 mc.on('rotate', function(e) {
 	     // do something cool
 	     var rotation = Math.round(e.rotation);    
-	     /* stage.style.transform = 'rotate('+rotation+'deg)'; */
+	     // stage.style.transform = 'rotate('+rotation+'deg)';
 	     $('#image').cropper("rotateTo",rotation)
-	 });
-	 mc.on('pinch', function(e) {
-		 alert(1)
-	     // do something cool
-	     /* var rotation = Math.round(e.rotation);    
-	     stage.style.transform = 'rotate('+rotation+'deg)';
-	     $('#image').cropper("rotateTo",rotation) */
-	 });
+	 }); */
+	 
+	 var angle = 0;
+	 touch.on('#hammer', 'touchstart', function(ev){
+		    ev.startRotate();
+		    ev.preventDefault();
+		});
+
+		touch.on('#hammer', 'rotate', function(ev){
+			var totalAngle = angle + ev.rotation;
+		    if(ev.fingerStatus === 'end'){
+		        angle = angle + ev.rotation;
+		    }
+		    this.style.webkitTransform = 'rotate(' + totalAngle  + 'deg)';
+		    $('#image').cropper("rotateTo",totalAngle )
+		});
   });
   </script>
-  <script type="text/javascript">
+ <!--  <script type="text/javascript">
 
 
 
@@ -929,6 +938,6 @@
 
 
 
-  </script>
+  </script> -->
 </body>
 </html>
