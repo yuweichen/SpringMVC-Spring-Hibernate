@@ -47,7 +47,7 @@ $(function () {
     },
     'cropmove.cropper': function (e) {
     	//console.log("d");
-    	if(e.action =='se' || e.action =='e' || e.action =='w' || e.action =='s' || e.action =='n' || e.action =='sw' || e.action =='ne' || e.action =='nw' )
+    	if(e.action =='se' || e.action =='e' || e.action =='w' || e.action =='s' || e.action =='n' || e.action =='sw' || e.action =='ne' || e.action =='nw' || e.action =='all'  )
     		flag = false;
       console.log(e.type, e.action);
     },

@@ -607,7 +607,7 @@
 
 		touch.on('.img-container', 'rotate', function(ev){
 			 console.log(flag);
-			if(flag){
+			if(true){
 			var totalAngle = angle + ev.rotation;
 		    if(ev.fingerStatus === 'end'){
 		        angle = angle + ev.rotation;

@@ -30,11 +30,14 @@
 	<div class="img-container">
 		<img id="image" src="assets/img/picture.jpg" alt="Picture">
 	</div>
-	<div class="img-container">
+	<div class="img-container1">
 	<a class="a">A</a>
 	<a class="b">B</a>
 	<a class="c">C</a>
-		
+	<div id="b6"></div>
+	<div>
+		<img alt="" id="end" src="">
+	</div>
 	</div>
 	<!-- Footer -->
 	<footer class="docs-footer">
@@ -46,9 +49,12 @@
 	<!-- <div id="log" style=""></div>
 <div id="hit" style="background-color: red; width: 200px; height: 200px;"></div> -->
 	<!-- Scripts -->
+	<script type="text/javascript">
+	var flag = true;
+	</script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="dist/cropper.js"></script>
+	<script src="dist/cropper2.js"></script>
 	<!-- <script src="js/main.js"></script> -->
 	<script src="js/bootstrap-slider.js"></script>
 	<script src="js/hammer.js"></script>
@@ -56,6 +62,8 @@
 	<script>
 		jQuery(function() {
 			$('.a').click(function(){
+				$('#b6').html($('#image').cropper("getCroppedCanvas").toDataURL())
+				$('#end').attr('src',$('#image').cropper("getCroppedCanvas").toDataURL());
 			});
 			$('.b').click(function(){
 				
@@ -73,8 +81,25 @@
 			
 			$('#image').cropper({
 				resizable : false,
-				movable : false
-			})
+				dragCrop : false
+			}).on({
+				'cropmove.cropper': function (e) {
+			    	//console.log("d");
+			    	/* if(e.action =='se' || e.action =='e' || e.action =='w' || e.action =='s' || e.action =='n' || e.action =='sw' || e.action =='ne' || e.action =='nw' || e.action =='all'  )
+			    		flag = false; */
+			      console.log(e.type, e.action,flag);
+			    },
+			    'cropend.cropper': function (e) {
+			    	//console.log("e");
+			    	//flag = true;
+			      console.log(e.type, e.action);
+			    },
+			    'cropstart.cropper': function (e) {
+			    	//console.log("c");
+			    		
+			      console.log(e.type, e.action);
+			    },
+			});
 			var mySlider = new Slider("#slider", {
 				value : 0,
 				min : -360,
@@ -91,7 +116,7 @@
 			 }); */
 			mySlider.on("slide", function(evt) {
 				// $('#image').cropper("rotate",0)
-				$('#image').cropper("rotateTo", evt.value)
+				$('#image').cropper("rotate", evt.value)
 			});
 			/*  $("#image1").cropper({
 				    aspectRatio: 16/9,
@@ -104,7 +129,7 @@
 			/* // Without JQuery
 			var slider = new Slider('#ex5'); */
 
-			var angle = 0;
+		/* 	var angle = 0;
 			// get a reference to an element
 			var stage = document.getElementById('hammer');
 
@@ -129,22 +154,27 @@
 				$('#hammer').html(e.isFinal)
 				stage.style.transform = 'rotate(' + totalAngle + 'deg)';
 				$('#image').cropper("rotateTo", totalAngle)
-			});
+			}); */
 
-			/*  var angle = 0;
-			 touch.on('#hammer', 'touchstart', function(ev){
+			var angle = 0;
+			 touch.on('.img-container', 'touchstart', function(ev){
+				 flag =true;
 				    ev.startRotate();
 				    ev.preventDefault();
 				});
 
-				touch.on('#hammer', 'rotate', function(ev){
+				touch.on('.img-container', 'rotate', function(ev){
+					if(true)
 					var totalAngle = angle + ev.rotation;
 				    if(ev.fingerStatus === 'end'){
 				        angle = angle + ev.rotation;
 				    }
-				    this.style.webkitTransform = 'rotate(' + totalAngle  + 'deg)';
-				    $('#image').cropper("rotateTo",totalAngle )
-				}); */
+				   // this.style.webkitTransform = 'rotate(' + totalAngle  + 'deg)';
+				    $('#image').cropper("rotate",totalAngle )
+				});
+				touch.on('.img-container', 'touchend', function(ev){
+				  flag =false;
+				});
 		});
 		function writeObj(obj) {
 			var description = "";

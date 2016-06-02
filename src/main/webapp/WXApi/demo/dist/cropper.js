@@ -1510,6 +1510,8 @@
     },
 
     cropStart: function (event) {
+    	if(flag)
+    		return;
       var options = this.options;
       var originalEvent = event.originalEvent;
       var touches = originalEvent && originalEvent.touches;
@@ -1613,7 +1615,6 @@
     cropEnd: function (event) {
       var originalEvent = event.originalEvent;
       var action = this.action;
-
       if (this.isDisabled) {
         return;
       }
@@ -1683,6 +1684,7 @@
         case ACTION_ALL:
           left += range.x;
           top += range.y;
+          //return;
           break;
 
         // Resize crop box
@@ -1990,7 +1992,7 @@
             renderable = false;
             break;
           }
-
+          return;
           offset = this.$cropper.offset();
           left = this.startX - offset.left;
           top = this.startY - offset.top;
